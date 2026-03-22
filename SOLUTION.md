@@ -137,9 +137,25 @@ All data is held in `Map<string, T>` instances within repository classes. Produc
 
 ### Pending
 
-- ⏳ Comprehensive unit tests for Cart and Checkout modules (Products and Discounts have tests)
 - ⏳ Expo mobile app (SDK 54) implementation
 - ⏳ Mobile app tests
+
+### Test Results
+
+**All BFF unit tests passing: 31/31 ✅**
+
+- AppController: 1 test
+- ProductsService: 7 tests
+- DiscountEngine: 9 tests
+- CartService: 9 tests
+- CheckoutService: 5 tests
+
+Test coverage includes:
+- Stock reservation and release logic
+- All three discount strategies and stacking
+- Cart lifecycle management
+- Checkout success and failure scenarios
+- Error handling for all edge cases
 
 ### Verification Results
 
