@@ -1,6 +1,6 @@
 import { Controller, Post, Param } from '@nestjs/common';
 import { CheckoutService } from '../application/CheckoutService';
-import { CheckoutResult } from '../application/dto/CheckoutResponseDto';
+import type { CheckoutResult } from '../application/dto/CheckoutResponseDto';
 
 /**
  * Controller handling checkout operations.
