@@ -1,8 +1,20 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { GlobalHttpExceptionFilter } from './shared/filters/GlobalHttpExceptionFilter';
+import { ResponseTransformInterceptor } from './shared/interceptors/ResponseTransformInterceptor';
+import { globalValidationPipe } from './shared/pipes/GlobalValidationPipe';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(process.env.PORT ?? 3000);
+
+  app.setGlobalPrefix('api');
+  app.enableCors();
+  app.useGlobalPipes(globalValidationPipe);
+  app.useGlobalFilters(new GlobalHttpExceptionFilter());
+  app.useGlobalInterceptors(new ResponseTransformInterceptor());
+
+  await app.listen(3001);
+  console.log('Retail Shopping BFF running on http://localhost:3001');
 }
-bootstrap();
+
+void bootstrap();
