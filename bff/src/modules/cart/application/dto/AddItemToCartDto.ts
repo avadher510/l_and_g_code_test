@@ -1,11 +1,11 @@
-import { IsUUID, IsInt, Min, Max, IsNotEmpty } from 'class-validator';
+import { IsString, IsInt, Min, Max, IsNotEmpty } from 'class-validator';
 import {
   MINIMUM_CART_ITEM_QUANTITY,
   MAXIMUM_CART_ITEM_QUANTITY,
 } from '../../../../shared/constants/businessRules';
 
 export class AddItemToCartDto {
-  @IsUUID()
+  @IsString()
   @IsNotEmpty()
   productId: string;
 
