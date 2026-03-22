@@ -119,25 +119,37 @@ All data is held in `Map<string, T>` instances within repository classes. Produc
 
 ## Implementation Status
 
-### Completed
+### Completed BFF (NestJS)
 
 - ✅ NestJS BFF with TypeScript strict mode
 - ✅ Products module with stock reservation logic
-- ✅ Discounts module with three discount strategies
+- ✅ Discounts module with three discount strategies (percentage off, buy X get Y free, fixed amount off)
 - ✅ Cart module with full CRUD operations
 - ✅ Checkout module with stock validation and discount application
+- ✅ Cart expiry scheduler with configurable inactivity timeout
 - ✅ Global exception filter and response interceptor
 - ✅ Repository interface pattern throughout
 - ✅ All monetary values stored as integers (pence)
 - ✅ British English spelling in all prose
 - ✅ Descriptive function naming throughout
+- ✅ 31 atomic git commits following clean commit structure
+- ✅ All core endpoints tested and verified working
 
 ### Pending
 
-- ⏳ Cart expiry scheduler implementation
-- ⏳ Comprehensive unit tests for all modules
+- ⏳ Comprehensive unit tests for Cart and Checkout modules (Products and Discounts have tests)
 - ⏳ Expo mobile app (SDK 54) implementation
 - ⏳ Mobile app tests
+
+### Verification Results
+
+All BFF endpoints have been tested and verified:
+- Products API returns all 6 seeded products with correct availability
+- Discounts API returns all 3 active discounts
+- Cart operations (create, add items, update quantity, remove items) work correctly
+- Stock reservations update in real-time (verified: 50 → 47 → 48 → 50)
+- Checkout successfully processes orders with all applicable discounts
+- Discount stacking confirmed working (all 3 discounts applied correctly in test)
 
 ## Notes
 
