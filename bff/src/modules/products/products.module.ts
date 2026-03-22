@@ -19,6 +19,6 @@ import { PRODUCT_REPOSITORY_TOKEN } from './domain/IProductRepository';
       useClass: InMemoryProductRepository,
     },
   ],
-  exports: [ProductsService],
+  exports: [ProductsService, PRODUCT_REPOSITORY_TOKEN],
 })
 export class ProductsModule {}
