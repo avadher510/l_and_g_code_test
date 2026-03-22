@@ -1,0 +1,13 @@
+{
+  "name": "retail-shopping-app",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "bff",
+    "mobile"
+  ],
+  "scripts": {
+    "test": "npm run test --workspaces",
+    "build": "npm run build --workspaces"
+  }
+}
