@@ -62,7 +62,7 @@ export default function CheckoutResultScreen() {
         <CheckoutStatusHeader isLoading={false} isSuccess={false} />
 
         <Text className="text-[#94a3b8] text-sm text-center mt-2 px-4">
-          {checkoutResult?.failureReason ?? 'An error occurred during checkout'}
+          {checkoutResult?.failureReason ?? checkoutError?.message ?? 'An error occurred during checkout'}
         </Text>
 
         {checkoutResult?.insufficientStockItems && checkoutResult.insufficientStockItems.length > 0 && (

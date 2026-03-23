@@ -12,7 +12,12 @@ export function useSubmitCartForCheckout() {
   const { cartId } = useCartSessionStore();
 
   const mutation = useMutation({
-    mutationFn: () => submitCartForCheckout(cartId!),
+    mutationFn: () => {
+      if (!cartId) {
+        throw new Error('No active cart session found');
+      }
+      return submitCartForCheckout(cartId);
+    },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['cart'] });
     },
