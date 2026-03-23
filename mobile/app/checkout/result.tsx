@@ -12,7 +12,7 @@ import { useCartSessionStore } from '../../src/store/cartSessionStore';
 
 export default function CheckoutResultScreen() {
   const router = useRouter();
-  const { submitCartForCheckout, isProcessingCheckout, checkoutResult, hasCheckoutCompleted } = useSubmitCartForCheckout();
+  const { submitCartForCheckout, isProcessingCheckout, checkoutResult, checkoutError, hasCheckoutCompleted } = useSubmitCartForCheckout();
   const { clearCartSessionAfterSuccessfulCheckout } = useCartSessionStore();
 
   useEffect(() => {
