@@ -29,6 +29,25 @@ npx expo start
 
 Press `i` for iOS simulator, `a` for Android emulator, or scan the QR code with Expo Go on your phone. Ensure the BFF is running first.
 
+### Mobile App Network Configuration
+
+**No `.env` file is required to run this project.** The mobile app is configured with a hardcoded BFF URL for ease of review and local testing.
+
+If you need to override the default BFF URL (e.g., running on a different network or emulator), create a `.env` file in the `mobile/` directory:
+
+```bash
+# For iOS Simulator
+EXPO_PUBLIC_BFF_BASE_URL=http://localhost:3001
+
+# For Android Emulator
+EXPO_PUBLIC_BFF_BASE_URL=http://10.0.2.2:3001
+
+# For Physical Device (use your machine's local IP)
+EXPO_PUBLIC_BFF_BASE_URL=http://192.168.0.156:3001
+```
+
+**Important:** This is a local-only demonstration project. In a production application, all API endpoints, authentication tokens, API keys, and sensitive configuration would be stored in environment variables and never committed to version control. The hardcoded configuration here is intentional for ease of review and is only acceptable for local development demonstrations.
+
 ## Running Tests
 
 BFF:    `cd bff && npm run test`
